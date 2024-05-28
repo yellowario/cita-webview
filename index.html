@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product {
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+        }
+        .input-group-btn-vertical {
+            position: relative;
+            white-space: nowrap;
+            width: 1%;
+            vertical-align: middle;
+            display: table-cell;
+        }
+        .input-group-btn-vertical > .btn {
+            display: block;
+            float: none;
+            width: 100%;
+            max-width: 100%;
+            padding: 8px;
+            margin-left: -1px;
+            position: relative;
+            border-radius: 0;
+        }
+        .input-group-btn-vertical > .btn:first-child {
+            border-top-right-radius: 4px;
+        }
+        .input-group-btn-vertical > .btn:last-child {
+            margin-top: -2px;
+            border-bottom-right-radius: 4px;
+        }
+        .input-group-btn-vertical i {
+            position: absolute;
+            top: 0;
+            left: 4px;
+        }
+        .input-group-btn-vertical .btn {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
+                    <h3>A Ultramild 16</h3>
+                    <p>Rp27.600</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity1" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
+                    <h3>Magnum Filter 12</h3>
+                    <p>Rp24.300</p>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
+                        <input type="text" class="form-control quantity-input" id="quantity2" value="1">
+                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat the above two columns to create a 4x4 grid -->
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        function incrementQuantity(productId) {
+            var input = document.getElementById('quantity' + productId);
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 1 : value;
+            value++;
+            input.value = value;
+        }
+        
+        function decrementQuantity(productId) {
+            var input = document.getElementById('quantity' + productId);
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 1 : value;
+            value--;
+            if (value < 1) {
+                value = 1;
+            }
+            input.value = value;
+        }
+    </script>
+</body>
+</html>
