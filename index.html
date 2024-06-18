@@ -51,6 +51,17 @@
             padding: 6px 10px;
             font-size: 12px;
         }
+        .row {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display:         flex;
+          flex-wrap: wrap;
+        }
+        .row > [class*='col-'] {
+          display: flex;
+          flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -59,9 +70,9 @@
             <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
-                    <h3>A Ultramild 16</h3>
+                    <h6>A Ultramild 16</h6>
                     <p>Rp27.600</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <div class="input-group mb-3">
                         <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
                         <input type="text" class="form-control quantity-input" id="quantity1" value="1">
@@ -72,9 +83,9 @@
             <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
-                    <h3>Magnum Filter 12</h3>
+                    <h6>Magnum Filter 12</h6>
                     <p>Rp24.300</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <div class="input-group mb-3">
                         <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
                         <input type="text" class="form-control quantity-input" id="quantity2" value="1">
@@ -85,9 +96,9 @@
             <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
-                    <h3>A Ultramild 16</h3>
+                    <h6>A Ultramild 16</h6>
                     <p>Rp27.600</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <div class="input-group mb-3">
                         <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
                         <input type="text" class="form-control quantity-input" id="quantity1" value="1">
@@ -98,9 +109,9 @@
             <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
-                    <h3>Magnum Filter 12</h3>
+                    <h6>Magnum Filter 12</h6>
                     <p>Rp24.300</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <div class="input-group mb-3">
                         <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
                         <input type="text" class="form-control quantity-input" id="quantity2" value="1">
@@ -111,9 +122,9 @@
             <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/VXVrGBqe34Bn1662985371849.jpg" alt="Product 1">
-                    <h3>A Ultramild 16</h3>
+                    <h6>A Ultramild 16</h6>
                     <p>Rp27.600</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <div class="input-group mb-3">
                         <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
                         <input type="text" class="form-control quantity-input" id="quantity1" value="1">
@@ -124,9 +135,9 @@
             <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/N2BT3zR0ddcD1662985744550.jpg" alt="Product 2">
-                    <h3>Magnum Filter 12</h3>
+                    <h6>Magnum Filter 12</h6>
                     <p>Rp24.300</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <div class="input-group mb-3">
                         <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
                         <input type="text" class="form-control quantity-input" id="quantity2" value="1">
