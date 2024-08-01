@@ -91,7 +91,7 @@
                         <input type="text" class="form-control quantity-input" id="quantity1" value="0">
                         <button class="btn btn-default" type="button" onclick="incrementQuantity(1)"><i class="fa fa-plus"></i></button>
                     </div>
-                    <button class="btn btn-success">+Keranjang 🛒</button>
+                    <button class="btn btn-success" onclick="addToCart()">+Keranjang 🛒</button>
                 </div>
             </div>
             <div class="col-6">
@@ -187,6 +187,23 @@
                 value = 1;
             }
             input.value = value;
+        }
+
+        function addToCart() {
+            let qty = document.getElementById("quantity1").value;
+            
+			window.parent.postMessage(JSON.stringify({
+				event_code: 'ym-client-event',
+				data: JSON.stringify({
+					event: {
+						code: "add-to-cart-webview",
+						data: {
+							qty: qty,
+                            product_id: 100
+						}
+					}
+				})
+			}), '*');
         }
     </script>
 </body>
