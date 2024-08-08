@@ -142,19 +142,21 @@
             console.log("sku_id", sku_id)
             
             if (qty != "0" && qty != 0) {
-                console.log("sending to yellow event");
+                let dataPayload = {
+                    qty: qty,
+                    product_id: product_id,
+                    sku_id: sku_id,
+                    product_name: product_name
+                }
+
+                console.log("sending to yellow event", dataPayload);
 
                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event',
                     data: JSON.stringify({
                         event: {
                             code: "add-to-cart-webview",
-                            data: {
-                                qty: qty,
-                                product_id: product_id,
-                                sku_id: sku_id,
-                                product_name: product_name
-                            }
+                            data: dataPayload
                         }
                     })
                 }), '*');
