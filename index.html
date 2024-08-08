@@ -80,7 +80,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" id="product-list">
             <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/i5C5cU2jZQfF1663062340643.jpeg" alt="Product 1">
@@ -94,72 +94,9 @@
                     <button class="btn btn-success" onclick="addToCart()">+Keranjang 🛒</button>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="product">
-                    <img src="https://cdn.yellowmessenger.com/i5C5cU2jZQfF1663062340643.jpeg" alt="Product 2">
-                    <h6 class="product-title">Sampoerna Mild 16</h6>
-                    <p>Rp 29.100</p>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-default" type="button" onclick="decrementQuantity(2)"><i class="fa fa-minus"></i></button>
-                        <input type="text" class="form-control quantity-input" id="quantity2" value="0">
-                        <button class="btn btn-default" type="button" onclick="incrementQuantity(2)"><i class="fa fa-plus"></i></button>
-                    </div>
-                    <button class="btn btn-success">+Keranjang 🛒</button>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="product">
-                    <img src="https://cdn.yellowmessenger.com/GRUrVFzIamAV1663149467990.jpg" alt="Product 3">
-                    <h6 class="product-title">Sampoerna Mild 12</h6>
-                    <p>Rp 22.000</p>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-default" type="button" onclick="decrementQuantity(3)"><i class="fa fa-minus"></i></button>
-                        <input type="text" class="form-control quantity-input" id="quantity3" value="0">
-                        <button class="btn btn-default" type="button" onclick="incrementQuantity(3)"><i class="fa fa-plus"></i></button>
-                    </div>
-                    <button class="btn btn-success">+Keranjang 🛒</button>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="product">
-                    <img src="https://cdn.yellowmessenger.com/UZG9CgMs9qxI1677208384515.png" alt="Product 4">
-                    <h6 class="product-title">Nation Bold 20</h6>
-                    <p>Rp 22.450</p>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-default" type="button" onclick="decrementQuantity(4)"><i class="fa fa-minus"></i></button>
-                        <input type="text" class="form-control quantity-input" id="quantity4" value="0">
-                        <button class="btn btn-default" type="button" onclick="incrementQuantity(4)"><i class="fa fa-plus"></i></button>
-                    </div>
-                    <button class="btn btn-success">+Keranjang 🛒</button>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="product">
-                    <img src="https://cdn.yellowmessenger.com/NKycvmuOMFS11677208420530.png" alt="Product 5">
-                    <h6 class="product-title">Nation Bold 16</h6>
-                    <p>Rp 17.700</p>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-default" type="button" onclick="decrementQuantity(5)"><i class="fa fa-minus"></i></button>
-                        <input type="text" class="form-control quantity-input" id="quantity5" value="0">
-                        <button class="btn btn-default" type="button" onclick="incrementQuantity(5)"><i class="fa fa-plus"></i></button>
-                    </div>
-                    <button class="btn btn-success">+Keranjang 🛒</button>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="product">
-                    <img src="https://cdn.yellowmessenger.com/MqSY6LGKquO91666689384573.png" alt="Product 6">
-                    <h6 class="product-title">Sampoerna A Splash Tropical 16</h6>
-                    <p>Rp 24.500</p>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-default" type="button" onclick="decrementQuantity(6)"><i class="fa fa-minus"></i></button>
-                        <input type="text" class="form-control quantity-input" id="quantity6" value="0">
-                        <button class="btn btn-default" type="button" onclick="incrementQuantity(6)"><i class="fa fa-plus"></i></button>
-                    </div>
-                    <button class="btn btn-success">+Keranjang 🛒</button>
-                </div>
-            </div>
-<!--             <div class="d-grid gap-2">
+
+            
+            <!-- <div class="d-grid gap-2">
                 <button class="btn btn-success">Tambahkan ke Keranjang 🛒</button>
             </div> -->
             <!-- Repeat the above two columns to create a 4x4 grid -->
@@ -205,6 +142,141 @@
 				})
 			}), '*');
         }
+
+        // Function to decompress the parameters (simple implementation)
+        function decompressParams(compressedString) {
+            const binaryString = atob(compressedString);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            const decoder = new TextDecoder();
+            const decompressedString = decoder.decode(bytes);
+            const pairs = decompressedString.split('&');
+            const params = {};
+            pairs.forEach(pair => {
+                const [key, value] = pair.split('=');
+                params[decodeURIComponent(key)] = decodeURIComponent(value.replaceAll("+", " "));
+            });
+            return params;
+        }
+
+        function convertParams(params) {
+            const result = {};
+            
+            for (const key in params) {
+                if (params.hasOwnProperty(key)) {
+                    // Extract the prefix (e.g., param_0 or param_1)
+                    const match = key.match(/^(.+?)\[.*\]$/);
+                    if (match) {
+                        const prefix = match[1];
+                        
+                        // Initialize the object for this prefix if it doesn't exist
+                        if (!result[prefix]) {
+                            result[prefix] = {};
+                        }
+                        
+                        // Extract the property name (e.g., stick, offering)
+                        const property = key.replace(`${prefix}[`, '').replace(']', '');
+                        
+                        // Assign the value to the proper object and property
+                        result[prefix][property] = params[key];
+                    }
+                }
+            }
+            
+            return result;
+        }
+
+
+
+        function convertToObjectArray(params) {
+            const result = [];
+            const groupedParams = {};
+
+            // Group parameters by their prefix
+            for (const key in params) {
+                if (params.hasOwnProperty(key)) {
+                    const match = key.match(/^(.+?)\[(.+?)\]$/);
+                    if (match) {
+                        const prefix = match[1];
+                        const property = match[2];
+                        
+                        // Initialize the object for this prefix if it doesn't exist
+                        if (!groupedParams[prefix]) {
+                            groupedParams[prefix] = {};
+                        }
+                        
+                        // Assign the property to the corresponding object
+                        groupedParams[prefix][property] = params[key];
+                    }
+                }
+            }
+
+            // Convert grouped parameters to an array of objects
+            for (const prefix in groupedParams) {
+                if (groupedParams.hasOwnProperty(prefix)) {
+                    result.push(groupedParams[prefix]);
+                }
+            }
+
+            return result;
+        }
+
+        function formatRupiah(amountString) {
+            const amount = parseInt(amountString.replace(/Rp\s*/, '').replace(/\./g, ''), 10);
+
+            // Format the number with thousands separators
+            const formatter = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0, // No decimal places
+            });
+            
+            return formatter.format(amount);
+        }
+
+        function generateProductHTML(product, index) {
+            let imageProduct = product.image ? product.image.split(',')[0] : 'https://cdn.yellowmessenger.com/wkoiPLe9DBu81650431575535.jpg';
+            let productPrice = formatRupiah(product.unit_price)
+
+            return `
+                <div class="col-6 mb-4">
+                    <div class="product">
+                        <img src="${imageProduct}" alt="${product.name}" class="img-fluid">
+                        <h6 class="product-title">${product.name}</h6>
+                        <p>Harga ${productPrice}</p>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-default" type="button" onclick="decrementQuantity(${index})"><i class="fa fa-minus"></i></button>
+                            <input type="text" class="form-control quantity-input" id="quantity${index}" value="0">
+                            <button class="btn btn-default" type="button" onclick="incrementQuantity(${index})"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <button class="btn btn-success" onclick="addToCart(${index})">+Keranjang 🛒</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        const queryString = window.location.search;
+
+        // Create a URLSearchParams object from the query string
+        const urlParams = new URLSearchParams(queryString);
+        const data = urlParams.get('data');
+
+        // Decompress the parameters
+        const decompressedParams = decompressParams(data);
+        console.log('decompressParams:', decompressedParams);
+
+        // Convert the URL parameters to an array of objects
+        const produtsArr = convertToObjectArray(decompressedParams);
+        console.log('Structured Array of produtsArr:', produtsArr);
+
+        function renderProducts(products) {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = products.map((product, index) => generateProductHTML(product, index)).join('');
+        }
+        renderProducts(produtsArr);
     </script>
 </body>
 </html>
