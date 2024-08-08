@@ -136,6 +136,9 @@
             let sku_id = document.getElementById("sku_"+index).value;
             let image = document.getElementById("image_"+index).value;
             let product_name = document.getElementById("name_"+index).value;
+            
+            let button = document.getElementById("button_"+index);
+            button.style.backgroundColor = "#002614";
 
             console.log("qty", qty)
             console.log("product_id", product_id)
@@ -279,7 +282,7 @@
                             <input type="hidden" class="form-control quantity-input" id="image_${index}" value="${imageProduct}">
                             <button class="btn btn-default" type="button" onclick="incrementQuantity(${index})"><i class="fa fa-plus"></i></button>
                         </div>
-                        <button class="btn btn-success" onclick="addToCart(${index})">+ Keranjang 🛒</button>
+                        <button class="btn btn-success" id="button_${index}" onclick="addToCart(${index})">+ Keranjang 🛒</button>
                     </div>
                 </div>
             `;
