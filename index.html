@@ -130,21 +130,32 @@
             input.value = value;
         }
 
-        function addToCart() {
-            let qty = document.getElementById("quantity1").value;
+        function addToCart(index) {
+            let qty = document.getElementById("quantity"+index).value;
+            let product_id = document.getElementById("id_"+index).value;
+            let product_name = document.getElementById("name_"+index).value;
+
+            console.log("qty", qty)
+            console.log("product_id", product_id)
+            console.log("product_name", product_name)
             
-			window.parent.postMessage(JSON.stringify({
-				event_code: 'ym-client-event',
-				data: JSON.stringify({
-					event: {
-						code: "add-to-cart-webview",
-						data: {
-							qty: qty,
-                            product_id: 100
-						}
-					}
-				})
-			}), '*');
+            if (qty != "0" && qty != 0) {
+                console.log("sending to yellow event");
+                
+                window.parent.postMessage(JSON.stringify({
+                    event_code: 'ym-client-event',
+                    data: JSON.stringify({
+                        event: {
+                            code: "add-to-cart-webview",
+                            data: {
+                                qty: qty,
+                                product_id: product_id,
+                                product_name: product_name
+                            }
+                        }
+                    })
+                }), '*');
+            }
         }
 
         // Function to decompress the parameters (simple implementation)
@@ -254,6 +265,8 @@
                         <div class="input-group mb-3">
                             <button class="btn btn-default" type="button" onclick="decrementQuantity(${index})"><i class="fa fa-minus"></i></button>
                             <input type="text" class="form-control quantity-input" id="quantity${index}" value="0">
+                            <input type="hidden" class="form-control quantity-input" id="id_${index}" value="${product.__id}">
+                            <input type="hidden" class="form-control quantity-input" id="name_${index}" value="${product.name}">
                             <button class="btn btn-default" type="button" onclick="incrementQuantity(${index})"><i class="fa fa-plus"></i></button>
                         </div>
                         <button class="btn btn-success" onclick="addToCart(${index})">+ Keranjang 🛒</button>
