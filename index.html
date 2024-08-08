@@ -12,8 +12,12 @@
             margin-bottom: 24px;
         }
         .product .product-title {
-            font-size: 16px;
+            padding-top: 15px;
+            font-size: 12px;
             height: 3.25rem;
+        }
+        .product .product-price {
+            font-size: 12px;
         }
         .product .btn {
             font-size: .75rem;
@@ -81,11 +85,11 @@
 <body>
     <div class="container">
         <div class="row" id="product-list">
-            <div class="col-6">
+            <!-- <div class="col-6">
                 <div class="product">
                     <img src="https://cdn.yellowmessenger.com/i5C5cU2jZQfF1663062340643.jpeg" alt="Product 1">
                     <h6 class="product-title">Sampoerna Limited Edition 16</h6>
-                    <p>Rp 28.100</p>
+                    <p class="product-price">Rp 28.100</p>
                     <div class="input-group mb-3">
                         <button class="btn btn-default" type="button" onclick="decrementQuantity(1)"><i class="fa fa-minus"></i></button>
                         <input type="text" class="form-control quantity-input" id="quantity1" value="0">
@@ -93,7 +97,7 @@
                     </div>
                     <button class="btn btn-success" onclick="addToCart()">+Keranjang 🛒</button>
                 </div>
-            </div>
+            </div> -->
 
             
             <!-- <div class="d-grid gap-2">
@@ -246,7 +250,7 @@
                     <div class="product">
                         <img src="${imageProduct}" alt="${product.name}" class="img-fluid">
                         <h6 class="product-title">${product.name}</h6>
-                        <p>${productPrice}</p>
+                        <p class="product-price">${productPrice}</p>
                         <div class="input-group mb-3">
                             <button class="btn btn-default" type="button" onclick="decrementQuantity(${index})"><i class="fa fa-minus"></i></button>
                             <input type="text" class="form-control quantity-input" id="quantity${index}" value="0">
