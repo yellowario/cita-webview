@@ -267,6 +267,7 @@
         // Create a URLSearchParams object from the query string
         const urlParams = new URLSearchParams(queryString);
         const data = urlParams.get('data');
+        console.log('encodedParams:', data);
 
         // Decompress the parameters
         const decompressedParams = decompressParams(data);
