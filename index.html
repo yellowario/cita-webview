@@ -225,7 +225,7 @@
         }
 
         function formatRupiah(amountString) {
-            const amount = parseInt(amountString.replace(/Rp\s*/, '').replace(/\./g, ''), 10);
+            const amount = amountString;
 
             // Format the number with thousands separators
             const formatter = new Intl.NumberFormat('id-ID', {
@@ -246,7 +246,7 @@
                     <div class="product">
                         <img src="${imageProduct}" alt="${product.name}" class="img-fluid">
                         <h6 class="product-title">${product.name}</h6>
-                        <p>Harga ${productPrice}</p>
+                        <p>${productPrice}</p>
                         <div class="input-group mb-3">
                             <button class="btn btn-default" type="button" onclick="decrementQuantity(${index})"><i class="fa fa-minus"></i></button>
                             <input type="text" class="form-control quantity-input" id="quantity${index}" value="0">
