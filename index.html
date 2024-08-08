@@ -133,15 +133,17 @@
         function addToCart(index) {
             let qty = document.getElementById("quantity"+index).value;
             let product_id = document.getElementById("id_"+index).value;
+            let sku_id = document.getElementById("sku_"+index).value;
             let product_name = document.getElementById("name_"+index).value;
 
             console.log("qty", qty)
             console.log("product_id", product_id)
             console.log("product_name", product_name)
+            console.log("sku_id", sku_id)
             
             if (qty != "0" && qty != 0) {
                 console.log("sending to yellow event");
-                
+
                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event',
                     data: JSON.stringify({
@@ -150,6 +152,7 @@
                             data: {
                                 qty: qty,
                                 product_id: product_id,
+                                product_id: sku_id,
                                 product_name: product_name
                             }
                         }
@@ -267,6 +270,7 @@
                             <input type="text" class="form-control quantity-input" id="quantity${index}" value="0">
                             <input type="hidden" class="form-control quantity-input" id="id_${index}" value="${product.__id}">
                             <input type="hidden" class="form-control quantity-input" id="name_${index}" value="${product.name}">
+                            <input type="hidden" class="form-control quantity-input" id="sku_${index}" value="${product.sku_id}">
                             <button class="btn btn-default" type="button" onclick="incrementQuantity(${index})"><i class="fa fa-plus"></i></button>
                         </div>
                         <button class="btn btn-success" onclick="addToCart(${index})">+ Keranjang 🛒</button>
