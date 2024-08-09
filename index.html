@@ -15,9 +15,11 @@
             padding-top: 15px;
             font-size: 12px;
             height: 3.25rem;
+            margin-bottom: 0px;
         }
         .product .product-price {
             font-size: 12px;
+            margin-bottom: 6px;
         }
         .product .btn {
             font-size: .75rem;
@@ -80,6 +82,19 @@
           display: flex;
           flex-direction: column;
         }
+        .value-qty-class {
+            /* background: #25a669; */
+            background: white;
+            /* width: 32%; */
+            height: 27px;
+            padding: 5px 10px 0px 10px;
+            margin-bottom: 10px !important;
+            font-size: 11px;
+            border-radius: 10px;
+            font-weight: bolder;
+            color: white;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
@@ -138,7 +153,17 @@
             let product_name = document.getElementById("name_"+index).value;
             
             let button = document.getElementById("button_"+index);
-            button.style.backgroundColor = "#002614";
+            // button.style.backgroundColor = "#002614";
+
+            if (qty != "0" && qty != 0) {
+                document.getElementById("valueQty"+index).textContent = "Qty : " + qty;
+                document.getElementById("valueQty"+index).style.backgroundColor = "#25a669";
+            } else {
+                document.getElementById("valueQty"+index).textContent = "";
+                document.getElementById("valueQty"+index).style.backgroundColor = "white";
+            }
+                
+            document.getElementById("quantity"+index).value = 0;
 
             console.log("qty", qty)
             console.log("product_id", product_id)
@@ -253,11 +278,10 @@
         function formatRupiah(amountString) {
             const amount = amountString;
 
-            // Format the number with thousands separators
             const formatter = new Intl.NumberFormat('id-ID', {
                 style: 'currency',
                 currency: 'IDR',
-                minimumFractionDigits: 0, // No decimal places
+                minimumFractionDigits: 0, 
             });
             
             return formatter.format(amount);
@@ -273,6 +297,9 @@
                         <img src="${imageProduct}" alt="${product.name}" class="img-fluid">
                         <h6 class="product-title">${product.name}</h6>
                         <p class="product-price">${productPrice}</p>
+                        <div class="input-group mb-3" style="margin-bottom: 0px !important">
+                            <p class="value-qty-class" id="valueQty${index}"></p>
+                        </div>
                         <div class="input-group mb-3">
                             <button class="btn btn-default" type="button" onclick="decrementQuantity(${index})"><i class="fa fa-minus"></i></button>
                             <input type="text" class="form-control quantity-input" id="quantity${index}" value="0">
